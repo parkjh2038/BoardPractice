@@ -6,37 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	body {
-		background:lightgray;
-	}
-	.outer {
-		width:1100px;
-		height:700px;
-		margin-left:auto;
-		margin-right:auto;
-		margin-top:30px;
-		background:white;
-		box-shadow: 0px 0px 5px black;
-	}
-	.title {
-		width: 300px;
-		border-style: dashed;
-		border-width:0px;
-		border-bottom-width:5px;
-		border-color: orangered;
-		margin-left:auto;
-		margin-right:auto;
-	}
-	table {
-		border-style: solid;
-		border-width:0px;
-		border-top-width:1px;
-		border-bottom-width:1px;
-		border-color:black;
-		text-align:center;
-		margin-top:50px;
-		margin-bottom:50px;
-	}
+<%@ include file="/css/boardStyle.css" %>
 </style>
 </head>
 <body>

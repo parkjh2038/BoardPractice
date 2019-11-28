@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+#listArea {
+	text-align:center;
+}
+
+.outer {
+	width:1100px;
+	height:700px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:30px;
+	background:white;
+	box-shadow:0px 0px 5px black;
+}
+
+.title {
+	width: 300px;
+	border-style:dashed;
+	border-width:0px;
+	border-bottom-width:5px;
+	border-color:orangered;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.tableArea {
+	height:420px;
+	margin-top:50px;
+	margin-bottom:20px;
+}
+
+.pagingArea {
+	margin-bottom:30px;
+}
+
+.searchArea {
+	width:900px;
+}
+
+.bTitle {
+	font-size:40px;
+	font-weight:900;
+	padding:20px;
+	padding-left:40px;
+}
+
+.bWriter {
+	font-size:15px;
+	font-weight:700;
+	padding-left:40px;
+}
+
+.bContent {
+	width:900px;
+	margin-top:15px;
+	margin-bottom:25px;
+	text-align:center;
+}
+
+#content {
+	resize:none;
+	outline:none;
+	border-style:solid;
+	border-width: 0px;
+	border-top-width: 1px;
+	padding:10px;
+
+}
+
+.bDate {
+	text-align:right;
+	margin-bottom:5px;
+}
+
+.ReadBtnForm {
+	margin:0;
+	padding-left:10px;
+	padding-right:10px;
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+	border:none;
+}
+
+body {
+	background:lightgray;
+}
+
+table {
+	border-style:solid;
+	border-width: 0px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-color: black;
+	table-layout: fixed;
+}
+
+th {
+	background: lightgray;
+}
+
+.td:hover{
+	background: darkgray;
+	cursor: pointer;
+}
+
+button {
+	position:relative;
+	border:0px;
+	padding:6px 8px;
+	display:inline-block;
+	text-align:center;
+	font-weight:700;
+	color:white;
+	background:orangered;
+}
+
+button:hover {
+	cursor: pointer;
+	background:rgb(196,54,0);
+}

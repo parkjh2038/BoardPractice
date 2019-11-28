@@ -2,69 +2,26 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, jsp.board.model.vo.*" %>
 <% 
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
-	PageInfo pi = (PageInfo) request.getAttribute("pi");
-	int listCount = pi.getListCount();
-	int currentPage = pi.getCurrentPage();
-	int maxPage = pi.getMaxPage();
-	int startPage = pi.getStartPage();
-	int endPage = pi.getEndPage();
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>연습용 게시판</title>
 <style>
-	body {
-		background:lightgray;
-	}
-	.outer {
-		width:1100px;
-		height:700px;
-		margin-left:auto;
-		margin-right:auto;
-		margin-top:30px;
-		background:white;
-		box-shadow: 0px 0px 5px black;
-	}
-	.title {
-		width: 300px;
-		border-style: dashed;
-		border-width:0px;
-		border-bottom-width:5px;
-		border-color: orangered;
-		margin-left:auto;
-		margin-right:auto;
-	}
-	.tableArea {
-		height:420px;
-		margin-top:50px;
-		margin-bottom:20px;
-	}
-	.pagingArea {
-		margin-bottom:30px;
-	}
-	.searchArea {
-		width: 900px;
-	}
-	table {
-		border-style: solid;
-		border-width:0px;
-		border-top-width:1px;
-		border-bottom-width:1px;
-		border-color:black;
-		text-align:center;
-	}
-	th {
-		background:lightgray;
-	}
+<%@ include file="/css/boardStyle.css" %>
 </style>
 </head>
 <body>
-	<% if(list == null) {
-		response.sendRedirect("/bp/selectList.bo");
-	}else{ %>
-
+	<% if(list != null) {
+		PageInfo pi = (PageInfo) request.getAttribute("pi");
+		int listCount = pi.getListCount();
+		int currentPage = pi.getCurrentPage();
+		int maxPage = pi.getMaxPage();
+		int startPage = pi.getStartPage();
+		int endPage = pi.getEndPage();
+	%>
 	<div class="outer" align="center">
 		<br>
 		<div class="title"  align="center">
@@ -72,7 +29,7 @@
 		</div>
 		<div class="tableArea">
 			<table align="center" id="listArea">
-				<tr>
+				<tr id="th">
 					<th width="100px">글번호</th>
 					<th width="400px">글제목</th>
 					<th width="150px">작성자</th>
@@ -80,7 +37,7 @@
 					<th width="150px">작성일</th>
 				</tr>
 				<% for(Board b : list){ %>
-					<tr>
+					<tr class="td">
 						<td><%= b.getBid() %></td>
 						<td><%= b.getbTitle() %></td>
 						<td><%= b.getbWriter() %></td>
@@ -90,6 +47,15 @@
 				<% } %>
 			</table>
 		</div>	<!-- tableArea end -->
+		
+		<script>
+			$(function(){
+				$("#listArea td").click(function(){
+					var num = $(this).parent().children().eq(0).text();
+					location.href="<%=request.getContextPath()%>/selectOne.bo?num=" + num;
+				});
+			})
+		</script>
 		
 		<div class="pagingArea" align="center">
 			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=1'"><<</button>
@@ -124,6 +90,9 @@
 			<button onclick="location.href='views/boardInsertForm.jsp'">작성하기</button>
 		</div>	<!-- searchArea end -->
 	</div>	<!-- outer end -->
-	<% } %>
+	<% }else{
+		response.sendRedirect("/bp/selectList.bo");
+	
+	} %>
 </body>
 </html>
