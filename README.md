@@ -34,5 +34,7 @@ This project is a board practice project based on the lessons learned at KH Info
 
 <h3>기능 추가 사항</h3>
 
-2019.11.27 - 게시판 조회, 수정 기능 추가<br>
+2019.11.27 - 게시판 조회, 게시글 작성 기능 추가<br>
 2019.11.28 - 게시판 페이징 기능 추가<br>
+2019.11.29 - 게시글 조회, 수정, 삭제 기능 추가<br>
+
