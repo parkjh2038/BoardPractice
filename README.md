@@ -28,6 +28,7 @@ This project is a board practice project based on the lessons learned at KH Info
 - CSS
 - JavaScript
 - JSP
+- jQuery
 
 <hr>
 
