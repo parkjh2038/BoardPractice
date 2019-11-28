@@ -7,24 +7,24 @@ This project is a board practice project based on the lessons learned at KH Info
 <hr>
 
 <h3>개발 환경(Development Environment)</h3>
-<strong>Environment</strong>
+<strong>Environment</strong><br>
 - JAVA(jdk 8u202)
 <br>
 <br>
-<strong>Database</strong>
+<strong>Database</strong><br>
 - ORACLE DATABASE
 <br>
 <br>
-<strong>Server</strong>
+<strong>Server</strong><br>
 - Apache Tomcat(8.5.47)
 <br>
 <br>
-<strong>Tool</strong>
+<strong>Tool</strong><br>
 - Eclipse(oxygen-3a)<br>
 - ORACLE SQL Developer(OracleXE112)<br>
 - SQLDeveloper(19.1.0.094.2042)<br>
 <br>
-<strong>View</strong>
+<strong>View</strong><br>
 - CSS
 - JavaScript
 - JSP
