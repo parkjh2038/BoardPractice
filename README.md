@@ -25,10 +25,10 @@ This project is a board practice project based on the lessons learned at KH Info
 - SQLDeveloper(19.1.0.094.2042)<br>
 <br>
 <strong>View</strong><br>
-- CSS
-- JavaScript
-- JSP
-- jQuery
+- CSS<br>
+- JavaScript<br>
+- JSP<br>
+- jQuery<br>
 
 <hr>
 
