@@ -2,6 +2,12 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, jsp.board.model.vo.*" %>
 <% 
 	ArrayList<Board> list = (ArrayList<Board>) request.getAttribute("list");
+	PageInfo pi = (PageInfo) request.getAttribute("pi");
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
 %>
 <!DOCTYPE html>
 <html>
@@ -30,6 +36,17 @@
 		margin-left:auto;
 		margin-right:auto;
 	}
+	.tableArea {
+		height:420px;
+		margin-top:50px;
+		margin-bottom:20px;
+	}
+	.pagingArea {
+		margin-bottom:30px;
+	}
+	.searchArea {
+		width: 900px;
+	}
 	table {
 		border-style: solid;
 		border-width:0px;
@@ -37,14 +54,18 @@
 		border-bottom-width:1px;
 		border-color:black;
 		text-align:center;
-		margin-top:50px;
-		margin-bottom:50px;
+	}
+	th {
+		background:lightgray;
 	}
 </style>
 </head>
 <body>
-	<% if(list != null) { %>
-	<div class="outer">
+	<% if(list == null) {
+		response.sendRedirect("/bp/selectList.bo");
+	}else{ %>
+
+	<div class="outer" align="center">
 		<br>
 		<div class="title"  align="center">
 			<h2>연습용 게시판</h2>
@@ -70,14 +91,39 @@
 			</table>
 		</div>	<!-- tableArea end -->
 		
-		<div class="searchArea" align="center">
+		<div class="pagingArea" align="center">
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=1'"><<</button>
+			
+			<% if(currentPage <= 1){ %>
+			<button disabled><</button>
+			<% } else{ %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage - 1%>'"><</button>
+			<% } %>
+			
+			<% for(int p = startPage; p <= endPage; p++){
+				if(p == currentPage){
+			%>
+				<button disabled><%= p %></button>
+			<% }else{ %>
+				<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=p%>'"><%= p %></button>
+			<% }
+			} %>
+			
+			<% if(currentPage >= maxPage){ %>
+			<button disabled>></button>
+			<% } else{ %>
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=currentPage + 1%>'">></button>
+			<% } %>
+			
+			<button onclick="location.href='<%=request.getContextPath()%>/selectList.bo?currentPage=<%=maxPage%>'">>></button>
+		</div>	<!-- pagingArea end -->
+
+		<div class="searchArea" align="right">
 			<input type="search">
 			<button type="submit">검색하기</button>
 			<button onclick="location.href='views/boardInsertForm.jsp'">작성하기</button>
 		</div>	<!-- searchArea end -->
 	</div>	<!-- outer end -->
-	<% }else{
-		response.sendRedirect("/bp/selectList.bo");
-	} %>
+	<% } %>
 </body>
 </html>

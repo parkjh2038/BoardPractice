@@ -34,10 +34,6 @@ public class insertBoardServlet extends HttpServlet {
 		String content = request.getParameter("content");
 		String writer = request.getParameter("writer");
 		
-		System.out.println("title : " + title);
-		System.out.println("content : " + content);
-		System.out.println("writer : " + writer);
-		
 		Board b = new Board();
 		b.setbTitle(title);
 		b.setbContent(content);
